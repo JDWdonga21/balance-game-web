@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import QuestionComponent from './components/QuestionComponent';
+import ResultScreen from './components/ResultScreen';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <Routes>
+          <Route path="/" element={<QuestionComponent />} />
+          <Route path="/result/:hash" element={<ResultScreen />} />
+          <Route path="*" element={<div>404 Not Found</div>} />
+        </Routes>
+      </Router>
+    );
+  }
 }
 
 export default App;
