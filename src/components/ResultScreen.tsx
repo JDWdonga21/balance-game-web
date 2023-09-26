@@ -17,37 +17,37 @@ import R22 from '../assets/22.jpg';
 import R31 from '../assets/31.jpg';
 import R32 from '../assets/32.jpeg';
 //숙소 이미지
-import H11 from '../assets/H1.jpg';
-import H12 from '../assets/H2.jpg';
-import H13 from '../assets/H3.jpg';
+import H11 from '../assets/H11.jpeg';
+import H12 from '../assets/H12.jpg';
+import H13 from '../assets/H13.jpg';
 
-import H21 from '../assets/H1.jpg';
-import H22 from '../assets/H2.jpg';
-import H23 from '../assets/H3.jpg';
+import H21 from '../assets/H21.jpeg';
+import H22 from '../assets/H22.jpg';
+import H23 from '../assets/H23.jpg';
 
-import H31 from '../assets/H1.jpg';
-import H32 from '../assets/H2.jpg';
-import H33 from '../assets/H3.jpg';
+import H31 from '../assets/H31.jpg';
+import H32 from '../assets/H32.jpg';
+import H33 from '../assets/H33.jpg';
 
-import H41 from '../assets/H1.jpg';
-import H42 from '../assets/H2.jpg';
-import H43 from '../assets/H3.jpg';
+import H41 from '../assets/H41.jpg';
+import H42 from '../assets/H42.jpeg';
+import H43 from '../assets/H43.jpg';
 
-import H51 from '../assets/H1.jpg';
-import H52 from '../assets/H2.jpg';
-import H53 from '../assets/H3.jpg';
+import H51 from '../assets/H51.jpeg';
+import H52 from '../assets/H52.jpeg';
+import H53 from '../assets/H53.jpg';
 
-import H61 from '../assets/H1.jpg';
-import H62 from '../assets/H2.jpg';
-import H63 from '../assets/H3.jpg';
+import H61 from '../assets/H61.jpg';
+import H62 from '../assets/H62.jpg';
+import H63 from '../assets/H63.jpeg';
 
-import H71 from '../assets/H1.jpg';
-import H72 from '../assets/H2.jpg';
-import H73 from '../assets/H3.jpg';
+import H71 from '../assets/H71.jpg';
+import H72 from '../assets/H72.png';
+import H73 from '../assets/H73.jpg';
 
-import H81 from '../assets/H1.jpg';
-import H82 from '../assets/H2.jpg';
-import H83 from '../assets/H3.jpg';
+import H81 from '../assets/H81.jpg';
+import H82 from '../assets/H82.jpg';
+import H83 from '../assets/H83.jpg';
 
 import { Typography } from '@mui/material';
 
