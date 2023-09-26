@@ -110,6 +110,9 @@ class ResultScreen extends React.Component<ResultScreenProps> {
     let RecommendHText1;
     let RecommendHText2;
     let RecommendHText3;
+    let RecommendHUrl1;
+    let RecommendHUrl2;
+    let RecommendHUrl3;
 
 
     if (hash === "5e901317337e58ac4695c38adf172bd1") {      
@@ -126,6 +129,9 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       RecommendHText1 = resultRecommendText[0][0];
       RecommendHText2 = resultRecommendText[0][1];
       RecommendHText3 = resultRecommendText[0][2];
+      RecommendHUrl1 = "https://backpackersinyeosu.com/";
+      RecommendHUrl2 = "https://alleyhostel.modoo.at/";
+      RecommendHUrl3 = "http://www.mdguesthouse.com/";
     } else if (hash === "7efbd4212d8d9fb4babd144c1a533cb2") {      
       firResultImg = resultImg[0][0];
       secResultImg = resultImg[1][0];
@@ -140,6 +146,9 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       RecommendHText1 = resultRecommendText[1][0];
       RecommendHText2 = resultRecommendText[1][1];
       RecommendHText3 = resultRecommendText[1][2];
+      RecommendHUrl1 = "https://knsgj.net/";
+      RecommendHUrl2 = "http://dongnakwon.com/";
+      RecommendHUrl3 = "https://www.gjw.or.kr/yeoro/?Diary_this_year=2023&Diary_this_month=4&Diary_id=diary";
     } else if (hash === "a0e1917dabbecfd4ce12a2c9f735451c") {      
       firResultImg = resultImg[0][0];
       secResultImg = resultImg[1][1];
@@ -154,6 +163,9 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       RecommendHText1 = resultRecommendText[2][0];
       RecommendHText2 = resultRecommendText[2][1];
       RecommendHText3 = resultRecommendText[2][2];
+      RecommendHUrl1 = "http://www.ramadaplazadolsanyeosu.com";
+      RecommendHUrl2 = "http://www.141minihotel.com/";
+      RecommendHUrl3 = "http://centralparkhotelbusan.com";
     } else if (hash === "2da84c46079a3b58bef688ecce5265dc") {      
       firResultImg = resultImg[0][0];
       secResultImg = resultImg[1][1];
@@ -168,6 +180,9 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       RecommendHText1 = resultRecommendText[3][0];
       RecommendHText2 = resultRecommendText[3][1];
       RecommendHText3 = resultRecommendText[3][2];
+      RecommendHUrl1 = "http://bichihotelpension.com";
+      RecommendHUrl2 = "https://www.namisum.com/hoteljeonggwanru";
+      RecommendHUrl3 = "https://www.westoceancc.co.kr/";
     } else if (hash === "8f7275935bd8ad697f68933156080a4c") {      
       firResultImg = resultImg[0][1];
       secResultImg = resultImg[1][0];
@@ -182,6 +197,9 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       RecommendHText1 = resultRecommendText[4][0];
       RecommendHText2 = resultRecommendText[4][1];
       RecommendHText3 = resultRecommendText[4][2];
+      RecommendHUrl1 = "https://uhsuite.co.kr";
+      RecommendHUrl2 = "http://www.dayshotelsuitesincheon.com";
+      RecommendHUrl3 = "https://firststayhotel.com/";
     } else if (hash === "5e3bf12621ce04a84742cac926fba51b") {      
       firResultImg = resultImg[0][1];
       secResultImg = resultImg[1][0];
@@ -196,6 +214,9 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       RecommendHText1 = resultRecommendText[5][0];
       RecommendHText2 = resultRecommendText[5][1];
       RecommendHText3 = resultRecommendText[5][2];
+      RecommendHUrl1 = "https://kensington.co.kr/hnw/";
+      RecommendHUrl2 = "http://rkj.co.kr/";
+      RecommendHUrl3 = "https://ihanok.modoo.at/";
     } else if (hash === "2812b1243110fc1ab3f971623f8515f7") {      
       firResultImg = resultImg[0][1];
       secResultImg = resultImg[1][1];
@@ -210,6 +231,9 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       RecommendHText1 = resultRecommendText[6][0];
       RecommendHText2 = resultRecommendText[6][1];
       RecommendHText3 = resultRecommendText[6][2];
+      RecommendHUrl1 = "https://blog.naver.com/joadang213";
+      RecommendHUrl2 = "http://of-onebookstay.com/";
+      RecommendHUrl3 = "https://link.inpock.co.kr/stay_jian";
     } else if (hash === "a351fa89e8202b5481365c754e753f04") {      
       firResultImg = resultImg[0][1];
       secResultImg = resultImg[1][1];
@@ -224,6 +248,9 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       RecommendHText1 = resultRecommendText[7][0];
       RecommendHText2 = resultRecommendText[7][1];
       RecommendHText3 = resultRecommendText[7][2];
+      RecommendHUrl1 = "https://www.thekosmos.co.kr/";
+      RecommendHUrl2 = "http://uretreat.co.kr/";
+      RecommendHUrl3 = "http://slowforest.me/";
     }
     return (
         <div style={styles.centerContainer}>
@@ -318,60 +345,76 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                     },
                 }}
             >
-                <Card>
-                    <CardMedia
-                        sx={{ height: 300 }}
-                        image= {firRecommendHimg}
-                        title="숙소추천1"
-                    />
-                    <CardContent
-                        style ={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            height: '100%',
-                        }}
-                    >
-                        <Typography>
-                            <h3>{RecommendHText1}</h3>
-                        </Typography>
-                    </CardContent>
-                </Card>
-                <Card>
-                    <CardMedia
-                        sx={{ height: 300 }}
-                        image= {secRecommendHimg}
-                        title="숙소추천2"
-                    />
-                    <CardContent
-                        style ={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            height: '100%',
-                        }}
-                    >
-                        <Typography>
-                            <h3>{RecommendHText2}</h3>
-                        </Typography>
-                    </CardContent>
-                </Card>
-                <Card>
-                    <CardMedia
-                        sx={{ height: 300 }}
-                        image= {trdRecommendHimg}
-                        title="숙소추천3"
-                    />
-                    <CardContent
-                        style ={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            height: '100%',
-                        }}
-                    >
-                        <Typography>
-                            <h3>{RecommendHText3}</h3>
-                        </Typography>
-                    </CardContent>
-                </Card>
+                <a 
+                    href={RecommendHUrl1}
+                    target='_blank'
+                >
+                    <Card>
+                        <CardMedia
+                            sx={{ height: 300 }}
+                            image= {firRecommendHimg}
+                            title="숙소추천1"
+                        />
+                        <CardContent
+                            style ={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                height: '100%',
+                            }}
+                        >
+                            <Typography>
+                                <h3>{RecommendHText1}</h3>
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </a>
+                <a 
+                    href={RecommendHUrl2}
+                    target='_blank'
+                >
+                    <Card>
+                        <CardMedia
+                            sx={{ height: 300 }}
+                            image= {secRecommendHimg}
+                            title="숙소추천2"
+                        />
+                        <CardContent
+                            style ={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                height: '100%',
+                            }}
+                        >
+                            <Typography>
+                                <h3>{RecommendHText2}</h3>
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </a>                
+                <a 
+                    href={RecommendHUrl3}
+                    target='_blank'
+                >
+                    <Card>
+                        <CardMedia
+                            sx={{ height: 300 }}
+                            image= {trdRecommendHimg}
+                            title="숙소추천3"
+                        />
+                        <CardContent
+                            style ={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                height: '100%',
+                            }}
+                        >
+                            <Typography>
+                                <h3>{RecommendHText3}</h3>
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                </a>
+                
             </Box>
             <Stack>*사진을 누르면 숙소 소개 페이지로 이동합니다.</Stack>
             <Button 
