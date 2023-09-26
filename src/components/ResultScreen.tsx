@@ -52,49 +52,49 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       firResultText = "가성비";
       secResultText = "관광지 마스터";
       trdResultText = "뚜벅이";         
-    } else if (hash === "83873ecd67c7cef8aad8f4b8169f8579") {      
+    } else if (hash === "7efbd4212d8d9fb4babd144c1a533cb2") {      
       firResultImg = resultImg[0][0];
       secResultImg = resultImg[1][0];
       trdResultImg = resultImg[2][1];
       firResultText = "가성비";
       secResultText = "관광지 마스터";
       trdResultText = "드라이브";
-    } else if (hash === "8d4328c8b65023e4551acae6071d82fd") {      
+    } else if (hash === "a0e1917dabbecfd4ce12a2c9f735451c") {      
       firResultImg = resultImg[0][0];
       secResultImg = resultImg[1][1];
       trdResultImg = resultImg[2][0];
       firResultText = "가성비";
       secResultText = "숙소 올인형";
       trdResultText = "뚜벅이";
-    } else if (hash === "5b40c94e1382312acb1b856e64759e19") {      
+    } else if (hash === "2da84c46079a3b58bef688ecce5265dc") {      
       firResultImg = resultImg[0][0];
       secResultImg = resultImg[1][1];
       trdResultImg = resultImg[2][1];
       firResultText = "가성비";
       secResultText = "숙소 올인형";
       trdResultText = "드라이브";
-    } else if (hash === "d938c442280818e9d3ca7808d3b65bd5") {      
+    } else if (hash === "8f7275935bd8ad697f68933156080a4c") {      
       firResultImg = resultImg[0][1];
       secResultImg = resultImg[1][0];
       trdResultImg = resultImg[2][0];
       firResultText = "가심비";
       secResultText = "관광지 마스터";
       trdResultText = "뚜벅이";
-    } else if (hash === "997a63628720da65f8cf6c40b791ca72") {      
+    } else if (hash === "5e3bf12621ce04a84742cac926fba51b") {      
       firResultImg = resultImg[0][1];
       secResultImg = resultImg[1][0];
       trdResultImg = resultImg[2][1];
       firResultText = "가심비";
       secResultText = "관광지 마스터";
       trdResultText = "드라이브";
-    } else if (hash === "043cdb832a8382605fbace17a5501fdf") {      
+    } else if (hash === "2812b1243110fc1ab3f971623f8515f7") {      
       firResultImg = resultImg[0][1];
       secResultImg = resultImg[1][1];
       trdResultImg = resultImg[2][0];
       firResultText = "가심비";
       secResultText = "숙소 올인형";
       trdResultText = "뚜벅이";
-    } else if (hash === "acbf415938afff17a73812981202864a") {      
+    } else if (hash === "a351fa89e8202b5481365c754e753f04") {      
       firResultImg = resultImg[0][1];
       secResultImg = resultImg[1][1];
       trdResultImg = resultImg[2][1];
@@ -120,7 +120,7 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                     <CardMedia
                         sx={{ height: 240 }}
                         image= {firResultImg}
-                        title="green iguana"
+                        title="가성비/가심비"
                     />
                     <CardContent
                         style ={{
@@ -138,7 +138,7 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                     <CardMedia
                         sx={{ height: 240 }}
                         image= {secResultImg}
-                        title="green iguana"
+                        title="관광지마스터/숙소올인형"
                     />
                     <CardContent
                         style ={{
@@ -156,7 +156,7 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                     <CardMedia
                         sx={{ height: 240 }}
                         image= {trdResultImg}
-                        title="green iguana"
+                        title="뚜벅이/드라이브"
                     />
                     <CardContent
                         style ={{
@@ -188,7 +188,7 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                     <CardMedia
                         sx={{ height: 300 }}
                         image= {H1}
-                        title="green iguana"
+                        title="숙소추천1"
                     />
                     <CardContent
                         style ={{
@@ -206,7 +206,7 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                     <CardMedia
                         sx={{ height: 300 }}
                         image= {H2}
-                        title="green iguana"
+                        title="숙소추천2"
                     />
                     <CardContent
                         style ={{
@@ -224,7 +224,7 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                     <CardMedia
                         sx={{ height: 300 }}
                         image= {H3}
-                        title="green iguana"
+                        title="숙소추천3"
                     />
                     <CardContent
                         style ={{

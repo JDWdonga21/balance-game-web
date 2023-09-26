@@ -57,6 +57,7 @@ class QuestionComponent extends Component<Props, State> {
 
     if (step < questions.length) {
       const options = questions[step].split(":")[1].split("또는").map((s) => s.trim());
+      options[1] = options[1].replace('?', '');
       const cardImg = questionImg[step];
       return (
         <div style={styles.centerContainer}>
@@ -65,7 +66,7 @@ class QuestionComponent extends Component<Props, State> {
                 <CardMedia
                     sx={{ height: 200 }}
                     image= {cardImg}
-                    title="green iguana"
+                    title="이미지"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
