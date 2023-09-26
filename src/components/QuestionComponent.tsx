@@ -18,6 +18,11 @@ const questions = [
   "질문 2: 관광지마스터 또는 숙소올인형?",
   "질문 3: 뚜벅이 또는 드라이브?",
 ];
+const questionsdtl = [
+  "설명설명 설명설명설명 설명설명설명 설명설명설명 설명설명설명 설명",
+  "설명설명 설명설명설명 설명설명설명 설명설명설명 설명설명설명 설명",
+  "설명설명 설명설명설명 설명설명설명 설명설명설명 설명설명설명 설명설명설명 설명",
+]
 const questionImg = [
     Q1img,
     Q2img,
@@ -72,10 +77,8 @@ class QuestionComponent extends Component<Props, State> {
                     <Typography gutterBottom variant="h5" component="div">
                         <h4>{questions[step]}</h4>
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        설명설명 설명설명설명 설명설명설명 설명설명설명 설명설명설명 설명
-                        설명설명 설명설명설명 설명설명설명 설명설명설명 설명설명설명 설명
-                        설명설명 설명설명설명 설명설명설명 설명설명설명 설명설명설명 설명설명설명 설명
+                    <Typography variant="body2" color="text.secondary"> 
+                        {questionsdtl[step]}
                     </Typography>
                 </CardContent>
                 <CardActions 

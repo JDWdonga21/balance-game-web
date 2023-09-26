@@ -17,9 +17,37 @@ import R22 from '../assets/22.jpg';
 import R31 from '../assets/31.jpg';
 import R32 from '../assets/32.jpeg';
 //숙소 이미지
-import H1 from '../assets/H1.jpg';
-import H2 from '../assets/H2.jpg';
-import H3 from '../assets/H3.jpg';
+import H11 from '../assets/H1.jpg';
+import H12 from '../assets/H2.jpg';
+import H13 from '../assets/H3.jpg';
+
+import H21 from '../assets/H1.jpg';
+import H22 from '../assets/H2.jpg';
+import H23 from '../assets/H3.jpg';
+
+import H31 from '../assets/H1.jpg';
+import H32 from '../assets/H2.jpg';
+import H33 from '../assets/H3.jpg';
+
+import H41 from '../assets/H1.jpg';
+import H42 from '../assets/H2.jpg';
+import H43 from '../assets/H3.jpg';
+
+import H51 from '../assets/H1.jpg';
+import H52 from '../assets/H2.jpg';
+import H53 from '../assets/H3.jpg';
+
+import H61 from '../assets/H1.jpg';
+import H62 from '../assets/H2.jpg';
+import H63 from '../assets/H3.jpg';
+
+import H71 from '../assets/H1.jpg';
+import H72 from '../assets/H2.jpg';
+import H73 from '../assets/H3.jpg';
+
+import H81 from '../assets/H1.jpg';
+import H82 from '../assets/H2.jpg';
+import H83 from '../assets/H3.jpg';
 
 import { Typography } from '@mui/material';
 
@@ -27,6 +55,37 @@ const resultImg = [
     [R11, R12,],
     [R21, R22,],
     [R31, R32,],
+];
+const resultTitle = [
+    "관광지 근처 게스트 하우스를 추천해요!",
+    "자연에 둘러싸인 한옥 숙소를 추천해요!",
+    "도심에 위치한 쉬어가기 좋은 호텔을 추천해요!",
+    "숙소에서도 자연을 만끽할 수 있은 호텔을 추천해요!",
+    "주요 관광 도시에 위치한 호텔을 추천해요!",
+    "자연에 둘러싸여 있지만, 근처 관광이 가능한 한옥 숙소를 추천해요!",
+    "한 번 들어가면 나오기 싫은 감성 한옥 숙소를 추천해요!",
+    "멋진 뷰 바라보며 하루종일 숙소에서도 즐거운 펜션을 추천해요!"
+];
+
+const resultRecommendImg = [
+    [H11 ,H12 ,H13],
+    [H21 ,H22 ,H23],
+    [H31 ,H32 ,H33],
+    [H41 ,H42 ,H43],
+    [H51 ,H52 ,H53],
+    [H61 ,H62 ,H63],
+    [H71 ,H72 ,H73],
+    [H81 ,H82 ,H83],
+];
+const resultRecommendText = [
+    ["백패거스인 여수(여수)", "앨리 케스트하우스(경주)", "명동 게스트하우스 꼬모(서울)"],
+    ["강릉 선교장(강릉)", "동락원(전주)", "한옥게스트하우스 여로(광주)"],
+    ["라마다프라자바이원덤여수(여수)", "141미니호텔(경주)", "부산센트럴파크호텔(부산)"],
+    ["남해비치호텔(남해)", "호텔정관루(강원 남이섬)", "웨스트오션CC골프텔(영광)"],
+    ["UH스위트 랜드스케이프(부산)", "데이즈호텔(인천)", "더퍼스트스테이호텔(서울)"],
+    ["남원예촌(남원)", "락고재 한옥호텔(안동)", "여락재(강진)"],
+    ["조아당(경주)", "일독일박(서울)", "스테이지안(대구)"],
+    ["코스모스리조트(울릉)", "유리트리트(홍천)", "슬로우오션(포항)"],
 ];
 
 interface ResultScreenProps {
@@ -43,7 +102,15 @@ class ResultScreen extends React.Component<ResultScreenProps> {
     let trdResultImg; 
     let firResultText;
     let secResultText;
-    let trdResultText; 
+    let trdResultText;
+    let titleText;
+    let firRecommendHimg;
+    let secRecommendHimg;
+    let trdRecommendHimg;
+    let RecommendHText1;
+    let RecommendHText2;
+    let RecommendHText3;
+
 
     if (hash === "5e901317337e58ac4695c38adf172bd1") {      
       firResultImg = resultImg[0][0];
@@ -51,7 +118,14 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       trdResultImg = resultImg[2][0];
       firResultText = "가성비";
       secResultText = "관광지 마스터";
-      trdResultText = "뚜벅이";         
+      trdResultText = "뚜벅이";
+      titleText = resultTitle[0];
+      firRecommendHimg = resultRecommendImg[0][0];
+      secRecommendHimg = resultRecommendImg[0][1];
+      trdRecommendHimg = resultRecommendImg[0][2];   
+      RecommendHText1 = resultRecommendText[0][0];
+      RecommendHText2 = resultRecommendText[0][1];
+      RecommendHText3 = resultRecommendText[0][2];
     } else if (hash === "7efbd4212d8d9fb4babd144c1a533cb2") {      
       firResultImg = resultImg[0][0];
       secResultImg = resultImg[1][0];
@@ -59,6 +133,13 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       firResultText = "가성비";
       secResultText = "관광지 마스터";
       trdResultText = "드라이브";
+      titleText = resultTitle[1];
+      firRecommendHimg = resultRecommendImg[1][0];
+      secRecommendHimg = resultRecommendImg[1][1];
+      trdRecommendHimg = resultRecommendImg[1][2];
+      RecommendHText1 = resultRecommendText[1][0];
+      RecommendHText2 = resultRecommendText[1][1];
+      RecommendHText3 = resultRecommendText[1][2];
     } else if (hash === "a0e1917dabbecfd4ce12a2c9f735451c") {      
       firResultImg = resultImg[0][0];
       secResultImg = resultImg[1][1];
@@ -66,6 +147,13 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       firResultText = "가성비";
       secResultText = "숙소 올인형";
       trdResultText = "뚜벅이";
+      titleText = resultTitle[2];
+      firRecommendHimg = resultRecommendImg[2][0];
+      secRecommendHimg = resultRecommendImg[2][1];
+      trdRecommendHimg = resultRecommendImg[2][2];
+      RecommendHText1 = resultRecommendText[2][0];
+      RecommendHText2 = resultRecommendText[2][1];
+      RecommendHText3 = resultRecommendText[2][2];
     } else if (hash === "2da84c46079a3b58bef688ecce5265dc") {      
       firResultImg = resultImg[0][0];
       secResultImg = resultImg[1][1];
@@ -73,6 +161,13 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       firResultText = "가성비";
       secResultText = "숙소 올인형";
       trdResultText = "드라이브";
+      titleText = resultTitle[3];
+      firRecommendHimg = resultRecommendImg[3][0];
+      secRecommendHimg = resultRecommendImg[3][1];
+      trdRecommendHimg = resultRecommendImg[3][2];
+      RecommendHText1 = resultRecommendText[3][0];
+      RecommendHText2 = resultRecommendText[3][1];
+      RecommendHText3 = resultRecommendText[3][2];
     } else if (hash === "8f7275935bd8ad697f68933156080a4c") {      
       firResultImg = resultImg[0][1];
       secResultImg = resultImg[1][0];
@@ -80,6 +175,13 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       firResultText = "가심비";
       secResultText = "관광지 마스터";
       trdResultText = "뚜벅이";
+      titleText = resultTitle[4];
+      firRecommendHimg = resultRecommendImg[4][0];
+      secRecommendHimg = resultRecommendImg[4][1];
+      trdRecommendHimg = resultRecommendImg[4][2];
+      RecommendHText1 = resultRecommendText[4][0];
+      RecommendHText2 = resultRecommendText[4][1];
+      RecommendHText3 = resultRecommendText[4][2];
     } else if (hash === "5e3bf12621ce04a84742cac926fba51b") {      
       firResultImg = resultImg[0][1];
       secResultImg = resultImg[1][0];
@@ -87,6 +189,13 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       firResultText = "가심비";
       secResultText = "관광지 마스터";
       trdResultText = "드라이브";
+      titleText = resultTitle[5];
+      firRecommendHimg = resultRecommendImg[5][0];
+      secRecommendHimg = resultRecommendImg[5][1];
+      trdRecommendHimg = resultRecommendImg[5][2];
+      RecommendHText1 = resultRecommendText[5][0];
+      RecommendHText2 = resultRecommendText[5][1];
+      RecommendHText3 = resultRecommendText[5][2];
     } else if (hash === "2812b1243110fc1ab3f971623f8515f7") {      
       firResultImg = resultImg[0][1];
       secResultImg = resultImg[1][1];
@@ -94,6 +203,13 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       firResultText = "가심비";
       secResultText = "숙소 올인형";
       trdResultText = "뚜벅이";
+      titleText = resultTitle[6];
+      firRecommendHimg = resultRecommendImg[6][0];
+      secRecommendHimg = resultRecommendImg[6][1];
+      trdRecommendHimg = resultRecommendImg[6][2];
+      RecommendHText1 = resultRecommendText[6][0];
+      RecommendHText2 = resultRecommendText[6][1];
+      RecommendHText3 = resultRecommendText[6][2];
     } else if (hash === "a351fa89e8202b5481365c754e753f04") {      
       firResultImg = resultImg[0][1];
       secResultImg = resultImg[1][1];
@@ -101,6 +217,13 @@ class ResultScreen extends React.Component<ResultScreenProps> {
       firResultText = "가심비";
       secResultText = "숙소 올인형";
       trdResultText = "드라이브";
+      titleText = resultTitle[7];
+      firRecommendHimg = resultRecommendImg[7][0];
+      secRecommendHimg = resultRecommendImg[7][1];
+      trdRecommendHimg = resultRecommendImg[7][2];
+      RecommendHText1 = resultRecommendText[7][0];
+      RecommendHText2 = resultRecommendText[7][1];
+      RecommendHText3 = resultRecommendText[7][2];
     }
     return (
         <div style={styles.centerContainer}>
@@ -171,8 +294,19 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                     </CardContent>
                 </Card>
             </Box>
-            <Stack>여수, 경주, 서울 등 국내 주요 관광지 근처의</Stack>
-            <Stack>접근성 좋은 게스트 하우스를 추천해요!</Stack>
+            <Card>
+                <CardContent
+                    style ={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        height: '100%',
+                    }}
+                >
+                    <Typography>
+                        <h2>{titleText}</h2>
+                    </Typography>
+                </CardContent>
+            </Card>
             <Box
                 sx={{
                     display: 'flex',
@@ -187,7 +321,7 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                 <Card>
                     <CardMedia
                         sx={{ height: 300 }}
-                        image= {H1}
+                        image= {firRecommendHimg}
                         title="숙소추천1"
                     />
                     <CardContent
@@ -198,14 +332,14 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                         }}
                     >
                         <Typography>
-                            <h2>유리트리트</h2>
+                            <h3>{RecommendHText1}</h3>
                         </Typography>
                     </CardContent>
                 </Card>
                 <Card>
                     <CardMedia
                         sx={{ height: 300 }}
-                        image= {H2}
+                        image= {secRecommendHimg}
                         title="숙소추천2"
                     />
                     <CardContent
@@ -216,14 +350,14 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                         }}
                     >
                         <Typography>
-                            <h2>힐튼 스테이 코스모스</h2>
+                            <h3>{RecommendHText2}</h3>
                         </Typography>
                     </CardContent>
                 </Card>
                 <Card>
                     <CardMedia
                         sx={{ height: 300 }}
-                        image= {H3}
+                        image= {trdRecommendHimg}
                         title="숙소추천3"
                     />
                     <CardContent
@@ -234,7 +368,7 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                         }}
                     >
                         <Typography>
-                            <h2>포트 엔 포트</h2>
+                            <h3>{RecommendHText3}</h3>
                         </Typography>
                     </CardContent>
                 </Card>
