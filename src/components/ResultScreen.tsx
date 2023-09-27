@@ -353,7 +353,7 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                         <CardMedia
                             sx={{ height: 300 }}
                             image= {firRecommendHimg}
-                            title="숙소추천1"
+                            title= {RecommendHText1}
                         />
                         <CardContent
                             style ={{
@@ -376,7 +376,7 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                         <CardMedia
                             sx={{ height: 300 }}
                             image= {secRecommendHimg}
-                            title="숙소추천2"
+                            title= {RecommendHText2}
                         />
                         <CardContent
                             style ={{
@@ -399,7 +399,7 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                         <CardMedia
                             sx={{ height: 300 }}
                             image= {trdRecommendHimg}
-                            title="숙소추천3"
+                            title= {RecommendHText3}
                         />
                         <CardContent
                             style ={{
@@ -416,14 +416,20 @@ class ResultScreen extends React.Component<ResultScreenProps> {
                 </a>
                 
             </Box>
-            <Stack>*사진을 누르면 숙소 소개 페이지로 이동합니다.</Stack>
+            <div style={styles.makeMargin}>
+                <Stack spacing={2}>*사진을 누르면 숙소 소개 페이지로 이동합니다.</Stack>
+            </div>            
             <Button 
                 variant="contained"
                 size="large"
+                href='https://www.google.com/intl/ko_kr/forms/about/'
+                target='_blank'
             >
                 이벤트 응모하기
             </Button>
-            <Link to="/">홈으로 돌아가기</Link>
+            <div style={styles.makeMargin}>
+                <Link to="/">홈으로 돌아가기</Link>
+            </div>            
         </div>        
     )
   }
@@ -434,7 +440,7 @@ const ResultScreenWrapper = () => {
   const { hash } = useParams() as { hash: string }; // Type assertion here
   return <ResultScreen hash={hash} />;
 };
-const styles: { centerContainer: CSSProperties } = {
+const styles: { centerContainer: CSSProperties, makeMargin: CSSProperties } = {
   centerContainer: {
     display: 'flex',
     flexDirection: 'column',
@@ -442,5 +448,8 @@ const styles: { centerContainer: CSSProperties } = {
     alignItems: 'center',
     padding: 40,
   },
+  makeMargin: {
+    margin: 20
+  }
 };
 export default ResultScreenWrapper;
