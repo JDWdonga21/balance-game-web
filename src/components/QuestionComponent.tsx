@@ -9,9 +9,17 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 import Q1img from '../assets/Q1.png'
 import Q2img from '../assets/Q2.jpg'
 import Q3img from '../assets/Q3.jpeg'
+//이미지
+import R11 from '../assets/11.jpeg';
+import R12 from '../assets/12.jpeg';
+import R21 from '../assets/21.jpg';
+import R22 from '../assets/22.jpg';
+import R31 from '../assets/31.jpg';
+import R32 from '../assets/32.jpeg';
 
 const questions = [
   "질문 1: 가성비 또는 가심비?",
@@ -24,9 +32,17 @@ const questionsdtl = [
   "설명설명 설명설명설명 설명설명설명 설명설명설명 설명설명설명 설명설명설명 설명",
 ]
 const questionImg = [
-    Q1img,
-    Q2img,
-    Q3img,
+  Q1img,
+  Q2img,
+  Q3img,
+];
+const btnImg = [
+  R11,
+  R21,
+  R31,
+  R12,
+  R22,
+  R32,
 ];
 
 interface State {
@@ -64,6 +80,8 @@ class QuestionComponent extends Component<Props, State> {
       const options = questions[step].split(":")[1].split("또는").map((s) => s.trim());
       options[1] = options[1].replace('?', '');
       const cardImg = questionImg[step];
+      const leftBtn = btnImg[step];
+      const rightBtn = btnImg[step+3];
       return (
         <div style={styles.centerContainer}>
             <h1>나의 KQ 숙소 유형 키워드</h1>
@@ -81,7 +99,7 @@ class QuestionComponent extends Component<Props, State> {
                         {questionsdtl[step]}
                     </Typography>
                 </CardContent>
-                <CardActions 
+                {/* <CardActions 
                     style={{ 
                         justifyContent: 'space-around' 
                     }}
@@ -100,8 +118,51 @@ class QuestionComponent extends Component<Props, State> {
                     >
                         {options[1]}
                     </Button>
-                </CardActions>
+                </CardActions> */}
             </Card>
+            <div 
+              style={{ 
+                display: 'flex',
+                flexDirection: 'row',
+              }}
+            >
+              <Box
+                sx={{
+                  width: 300,
+                  height: 300,
+                  backgroundColor: 'primary.dark',
+                  '&:hover': {
+                    backgroundColor: 'primary.main',
+                    opacity: [0.9, 0.8, 0.7],
+                  },
+                }}
+              >
+                <img 
+                  width={300} 
+                  height={300} 
+                  src={leftBtn} 
+                  onClick={() => this.handleAnswer(options[0])}
+                />
+              </Box>
+              <Box
+                sx={{
+                  width: 300,
+                  height: 300,
+                  backgroundColor: 'primary.dark',
+                  '&:hover': {
+                    backgroundColor: 'primary.main',
+                    opacity: [0.9, 0.8, 0.7],
+                  },
+                }}
+              >
+                <img 
+                  width={300} 
+                  height={300} 
+                  src={rightBtn} 
+                  onClick={() => this.handleAnswer(options[1])}
+                />
+              </Box>
+            </div>
         </div>        
       );
     }
