@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { CSSProperties } from 'react';
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Paper from '@mui/material/Paper';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 //결과화면
 import Result1 from './ResScreens/Result1';
 import Result2 from './ResScreens/Result2';
@@ -20,15 +12,6 @@ import Result7 from './ResScreens/Result7';
 import Result8 from './ResScreens/Result8';
 
 //이미지
-import header_title_result from '../assets/header_title_result.png';
-import keyword_title from '../assets/keyword_title.png'
-import result_key_01 from '../assets/result_key_01.png'
-import result_list_01_01 from '../assets/result_list_01_01.png'
-import result_list_01_02 from '../assets/result_list_01_02.png'
-import result_list_01_03 from '../assets/result_list_01_03.png'
-import pic_txt from '../assets/pic_txt.png'
-import btn_event from '../assets/btn_event.png'
-import main_btn from '../assets/main_btn.png'
 import result_bg_ico from '../assets/result_bg_ico.png'
 import bg_item from '../assets/bg_item.png'
 import pattern_bg from '../assets/pattern_bg.png'
