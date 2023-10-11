@@ -31,9 +31,9 @@ class Result2 extends React.Component {
                                 <div style={styles.keyTag}><img src={result_key_02} width="100%" alt="가성비 드라이브여행 관광지마스터"/></div>
                                 <div style={styles.keylist}>
                                     <ul>
-                                        <li><a href="https://me2.do/xvLmP636" target="_blank"><img src={result_list_02_01} width="100%" alt="강릉선교장"/></a></li>
-                                        <li><a href="https://me2.do/F0tMXwd0" target="_blank"><img src={result_list_02_02} width="100%" alt="동락원"/></a></li>
-                                        <li><a href="https://me2.do/FtufCuYM" target="_blank"><img src={result_list_02_03} width="100%" alt="여로"/></a></li>
+                                        <li style={styles.keyListLi}><a href="https://me2.do/xvLmP636" target="_blank"><img src={result_list_02_01} width="100%" alt="강릉선교장"/></a></li>
+                                        <li style={styles.keyListLi}><a href="https://me2.do/F0tMXwd0" target="_blank"><img src={result_list_02_02} width="100%" alt="동락원"/></a></li>
+                                        <li style={styles.keyListLi}><a href="https://me2.do/FtufCuYM" target="_blank"><img src={result_list_02_03} width="100%" alt="여로"/></a></li>
                                     </ul>
                                 </div>
                             </div>               
@@ -79,10 +79,10 @@ const styles: {[key in string]: CSSProperties}= {
       content: "''",
       display: 'block',
       position: 'absolute',
-      background: `url('${bg_img}') top center no-repeat`,
+      background: `url('${bg_img}') bottom center repeat-x`,
       backgroundSize: '100%',
       width: '100%',
-      height: 60,
+      height: 80,
       bottom: 0,
       zIndex: 0
     },

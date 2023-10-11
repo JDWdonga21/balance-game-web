@@ -31,9 +31,9 @@ class Result3 extends React.Component {
                                 <div style={styles.keyTag}><img src={result_key_03} width="100%" alt="가성비 뚜벅이여행 숙소올인형"/></div>
                                 <div style={styles.keylist}>
                                     <ul>
-                                        <li><a href="https://me2.do/50eAT0BO" target="_blank"><img src={result_list_03_01} width="100%" alt="라마다프라자바이윈덤 여수"/></a></li>
-                                        <li><a href="https://me2.do/5ITU2QkE" target="_blank"><img src={result_list_03_02} width="100%" alt="141미니호텔"/></a></li>
-                                        <li><a href="https://me2.do/5dyLd2hx" target="_blank"><img src={result_list_03_03} width="100%" alt="부산센트럴파크호텔"/></a></li>
+                                        <li style={styles.keyListLi}><a href="https://me2.do/50eAT0BO" target="_blank"><img src={result_list_03_01} width="100%" alt="라마다프라자바이윈덤 여수"/></a></li>
+                                        <li style={styles.keyListLi}><a href="https://me2.do/5ITU2QkE" target="_blank"><img src={result_list_03_02} width="100%" alt="141미니호텔"/></a></li>
+                                        <li style={styles.keyListLi}><a href="https://me2.do/5dyLd2hx" target="_blank"><img src={result_list_03_03} width="100%" alt="부산센트럴파크호텔"/></a></li>
                                     </ul>
                                 </div>
                             </div>               
@@ -79,10 +79,10 @@ const styles: {[key in string]: CSSProperties}= {
       content: "''",
       display: 'block',
       position: 'absolute',
-      background: `url('${bg_img}') top center no-repeat`,
+      background: `url('${bg_img}') bottom center repeat-x`,
       backgroundSize: '100%',
       width: '100%',
-      height: 60,
+      height: 80,
       bottom: 0,
       zIndex: 0
     },

@@ -107,7 +107,7 @@ class QuestionComponent extends Component<Props, State> {
                 <p style={styles.headerTitle}><img src={header_title_test} width="100%" alt="나의 KQ숙소유형테스트"/></p>
 
                 <div style={styles.questionItem}>
-                    <h1><img src={questionTitle} width="100%" alt={questions[step]}/></h1>
+                    <h1 style={styles.questionH1}><img src={questionTitle} width="100%" alt={questions[step]}/></h1>
                     <ul style={styles.answerItems}>
                         <li style={styles.answerItemsLi}><img src={leftBtn} width="100%" alt={lefttext} onClick={() => this.handleAnswer(lefttext)}/></li>
                         <li style={styles.answerItemsLi}><img src={rightBtn} width="100%" alt={righttext} onClick={() => this.handleAnswer(righttext)}/></li>
@@ -152,10 +152,10 @@ const styles: {[key in string]: CSSProperties}= {
       content: "''",
       display: 'block',
       position: 'absolute',
-      background: `url('${bg_img}') top center no-repeat`,
+      background: `url('${bg_img}') bottom center repeat-x`,
       backgroundSize: '100%',
       width: '100%',
-      height: 60,
+      height: 80,
       bottom: 0,
       zIndex: 0
     },
