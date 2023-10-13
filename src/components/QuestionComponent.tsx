@@ -204,7 +204,8 @@ const styles: {[key in string]: CSSProperties}= {
         float: 'left',
         textAlign: 'center',
         padding: '3%',
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
+        cursor: 'pointer'
     },
     result: {
         background: `url(${result_bg_ico}) 0 0 no-repeat`,
