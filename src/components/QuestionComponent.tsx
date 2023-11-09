@@ -8,14 +8,14 @@ import keyword_title from '../assets/keyword_title.png'
 import pic_txt from '../assets/pic_txt.png'
 import btn_event from '../assets/btn_event.png'
 import main_btn from '../assets/main_btn.png'
-import result_bg_ico from '../assets/result_bg_ico.png'
+// import result_bg_ico from '../assets/result_bg_ico.png'
 import bg_img from '../assets/bg_img.png'
 import bg_item from '../assets/bg_item.png'
 import pattern_bg from '../assets/pattern_bg.png'
-
+import LinearProgress from '@mui/material/LinearProgress';
 
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+//import { withStyles } from '@mui/styles';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -32,6 +32,16 @@ import answer_02_a from '../assets/answer_02_a.png';
 import answer_02_b from '../assets/answer_02_b.png';
 import answer_03_a from '../assets/answer_03_a.png';
 import answer_03_b from '../assets/answer_03_b.png';
+
+import answer_01_a_on from '../assets/answer_01_a_on.png'
+import answer_01_b_on from '../assets/answer_01_b_on.png';
+import answer_02_a_on from '../assets/answer_02_a_on.png';
+import answer_02_b_on from '../assets/answer_02_b_on.png';
+import answer_03_a_on from '../assets/answer_03_a_on.png';
+import answer_03_b_on from '../assets/answer_03_b_on.png';
+
+import or_img from '../assets/or_ico.png';
+import vs_icon from '../assets/vs_ico.png';
 
 const questions = [
   "01 나의숙소소비성향은?",   
@@ -60,27 +70,97 @@ const btnImg = [
   answer_02_b,
   answer_03_b,  
 ];
+const clickedBtnImg = [
+  answer_01_a_on,
+  answer_02_a_on,
+  answer_03_a_on,
+  answer_01_b_on,
+  answer_02_b_on,
+  answer_03_b_on,
+];
 
 interface State {
   step: number;
   answers: string[];
+  clickedButton: string | null;
+  isHoveredL: boolean;
+  isHoveredR: boolean;
+  onClick : boolean;
+  progress1 : number;
+  progress2 : number;
+  progress3 : number;
 }
 
 interface Props {
   navigate: (to: string) => void;
 }
-
 class QuestionComponent extends Component<Props, State> {
+  timeoutId: NodeJS.Timeout | null = null;
   state: State = {
     step: 0,
     answers: [],
+    clickedButton: null,
+    isHoveredL: false,
+    isHoveredR: false,
+    onClick : false,
+    progress1: 0,
+    progress2: 0,
+    progress3: 0,
   };
+  componentDidMount(): void {
+    this.fillProgressBar('progress1');
+  }
+  componentWillUnmount(): void {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+    }
+  }
+  handleAnswer = (answer: string, text: string) => {
+    this.setState({onClick: true})
 
-  handleAnswer = (answer: string) => {
+    // Set which button is clicked
+    if(text === 'left') {
+      this.setState({ 
+        clickedButton: 'left' 
+      });
+      if(this.state.isHoveredL === false){
+        this.setState({
+          isHoveredL: true
+        })
+      }
+    } else if(text === 'right') {
+      this.setState({ 
+        clickedButton: 'right' 
+      });
+      if(this.state.isHoveredR === false){
+        this.setState({
+          isHoveredR: true
+        })
+      }
+    }
+    
+    // Reset clickedButton after 1 second
+    this.timeoutId = setTimeout(() => {
+      this.handleAnswer2(answer);
+    }, 500);
+  }
+  handleAnswer2 = (answer: string) => {
     this.setState((prevState: State) => ({
       answers: [...prevState.answers, answer],
+      clickedButton: null,
+      onClick: false,
       step: prevState.step + 1,
+      isHoveredL: false,
+      isHoveredR: false,
     }), () => {
+      //진행바
+      if (this.state.step === 1) {
+        this.fillProgressBar('progress2');
+      } else if (this.state.step === 2) {
+        this.fillProgressBar('progress3');
+      } 
+
+
       if (this.state.step >= questions.length) {
         const resultString = this.state.answers.join("");
         const hash = MD5(resultString).toString();
@@ -88,35 +168,138 @@ class QuestionComponent extends Component<Props, State> {
       }
     });
   };
-
+  fillProgressBar = (progressName: 'progress1' | 'progress2' | 'progress3') => {
+    let progressValue = 0;
+    const interval = setInterval(() => {
+      progressValue += 1; // 원하는 속도를 조절하기 위해 이 값을 조정할 수 있습니다.
+      this.setState({ [progressName]: progressValue } as any); // as any is used to bypass TypeScript type error.
+      if (progressValue >= 100) {
+        clearInterval(interval);
+      }
+    }, 3);
+  }
+  onMouseEnterL = () => {
+    this.setState({ isHoveredL: true });
+  }
+  onMouseLeaveL = () => {
+    this.setState({ isHoveredL: false });
+  }
+  onMouseEnterR = () => {
+    this.setState({ isHoveredR: true });
+  }
+  onMouseLeaveR = () => {
+    this.setState({ isHoveredR: false });
+  }
   render() {
     const { step } = this.state;
-
+    const buttonStyleL = {
+      transition: '0.3s',
+      transform: this.state.isHoveredL ? 'scale(1.1)' : 'scale(1)'
+    };
+    const buttonStyleR = {
+      transition: '0.3s',
+      transform: this.state.isHoveredR ? 'scale(1.1)' : 'scale(1)'
+    };
     if (step < questions.length) {
       const leftBtn = btnImg[step];
       const rightBtn = btnImg[step+3];
+      const temporaryLeftImage = clickedBtnImg[step]
+      const temporaryRightImage = clickedBtnImg[step+3]
       const lefttext = questionsdtl[step];
       const righttext = questionsdtl[step+3];
       const questionTitle = questionImg[step];
       return (
         <div style={styles.body}>
+          {/* 새로운 진행바 */}
+          <div style={{ width: '100%', height: '5%', display: 'flex', alignItems: 'center', justifyContent: 'space-around', marginTop: 15, }}>
+            <div style={{ width: 900, height: '5%', display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
+              <Stack style={{width: '32%', height: 7 }}>
+                <LinearProgress 
+                  sx={{ 
+                    '& .MuiLinearProgress-barColorPrimary': {
+                      backgroundColor: '#68cb37',
+                    },
+                    '& .MuiLinearProgress-colorPrimary': {
+                      backgroundColor: '#ced3df',
+                    },
+                  }}
+                  style={{ width: '100%', height: 7, backgroundColor: '#ced3df'}} 
+                  variant="determinate" 
+                  value={this.state.progress1} 
+                />
+              </Stack>
+              <Stack style={{ width: '32%', height: 7 }}>
+                <LinearProgress 
+                  sx={{ 
+                    '& .MuiLinearProgress-barColorPrimary': {
+                      backgroundColor: '#68cb37',
+                    },
+                    '& .MuiLinearProgress-colorPrimary': {
+                      backgroundColor: '#ced3df',
+                    },
+                  }}
+                  style={{ width: '100%', height: 7, backgroundColor: '#ced3df' }} 
+                  variant="determinate" 
+                  value={this.state.progress2} 
+                />
+              </Stack>
+              <Stack style={{ width: '32%', height: 7 }}>
+                <LinearProgress 
+                  sx={{ 
+                    '& .MuiLinearProgress-barColorPrimary': {
+                      backgroundColor: '#68cb37',
+                    },
+                    '& .MuiLinearProgress-colorPrimary': {
+                      backgroundColor: '#ced3df',
+                    },
+                  }}
+                  style={{ width: '100%', height: 7, backgroundColor: '#ced3df'}} 
+                  variant="determinate" 
+                  value={this.state.progress3} 
+                />
+              </Stack>
+              
+            </div>
+          </div>
           <div style={styles.section}>
             <div style={styles.wrap}>
-              <div style={styles.question}>
-                <div style={styles.paging}></div>
-                <p style={styles.headerTitle}><img src={header_title_test} width="100%" alt="나의 KQ숙소유형테스트"/></p>
-
-                <div style={styles.questionItem}>
+              <div style={styles.question}>                
+                <p style={styles.headerTitle}><img src={header_title_test} width="100%" alt="나의 숙소취향 테스트"/></p>
+                <div style={styles.border}>
+                  <div style={styles.questionItem}>
                     <h1 style={styles.questionH1}><img src={questionTitle} width="100%" alt={questions[step]}/></h1>
+                    <span style={styles.vsico}><img src={vs_icon} width="100%" alt="vs"/></span>
                     <ul style={styles.answerItems}>
-                        <li style={styles.answerItemsLi}><img src={leftBtn} width="100%" alt={lefttext} onClick={() => this.handleAnswer(lefttext)}/></li>
-                        <li style={styles.answerItemsLi}><img src={rightBtn} width="100%" alt={righttext} onClick={() => this.handleAnswer(righttext)}/></li>
-                    </ul>
+                        <li style={styles.answerItemsLi}>
+                          <img
+                            style={buttonStyleL}
+                            src={this.state.clickedButton === 'left' ? temporaryLeftImage : leftBtn} 
+                            width="100%" 
+                            alt={lefttext}
+                            onMouseEnter={this.onMouseEnterL}
+                            onMouseLeave={this.onMouseLeaveL} 
+                            onClick={this.state.onClick ? ()=> {} : () => this.handleAnswer(lefttext, 'left')}
+                          />
+                        </li>
+                        <li style={styles.answerItemsLi}>
+                          <img 
+                            style={buttonStyleR}
+                            src={this.state.clickedButton === 'right' ? temporaryRightImage : rightBtn}
+                            width="100%" 
+                            alt={righttext} 
+                            onMouseEnter={this.onMouseEnterR}
+                            onMouseLeave={this.onMouseLeaveR}
+                            onClick={this.state.onClick ? ()=> {} : () => this.handleAnswer(righttext, 'right')}
+                          />
+                        </li>
+                    </ul>                    
                 </div>
+                </div>               
+
               </div>
-              <div style={styles.wrapAfter}></div>
+              {/* <div style={styles.wrapAfter}></div> */}
             </div>
-            <div style={styles.sectionAfter}></div>
+            {/* <div style={styles.sectionAfter}></div> */}
           </div>
         </div>        
       );
@@ -136,79 +319,87 @@ const styles: {[key in string]: CSSProperties}= {
    body: {
         padding: 0,
         margin: 0,
-        height: '100vh',
         position: 'relative',
-        background: `url('${pattern_bg}')`
+        background: `url('${pattern_bg}')`,
     },
     section: {
-        width: '100%',
-        minWidth: 360,
-        margin: 'auto',
-        height: '100%',
-        position: 'relative',
-        paddingBottom: '0%',
-    },
-    sectionAfter: {
-      content: "''",
-      display: 'block',
-      position: 'absolute',
-      background: `url('${bg_img}') bottom center repeat-x`,
-      backgroundSize: '100%',
       width: '100%',
-      height: 80,
-      bottom: 0,
-      zIndex: 0
+      minWidth: 360,
+      margin: '0 auto',
+      height: '100%',
+      position: 'relative',
     },
     wrap: {
         maxWidth: 600,
-        minWidth: 360,
-        height: '100%',
+        width: '100%',
+        padding: '0 25px 18vh 25px',
+        textAlign: 'center',
         margin: '0 auto',
-        overflow: 'hidden',
-        paddingBottom: '18vh',
-        position: 'relative'
+        boxSizing: 'border-box',
+        position: 'relative',
     },
     headerTitle: { // Converted to camelCase
         marginTop: 50,
         textAlign: 'center',
-        padding: '0 2%'
-    },
-    wrapAfter: {
-        content: "''",
-        display: 'block',
-        position: 'absolute',
-        background: `url('${bg_item}') top center no-repeat`,
-        backgroundSize: '100%',
-        width: '100%',
-        height: 120,
-        bottom: 0,
-        zIndex: 1,
+        padding: '0.2%'
     },
     question: {},
     questionItem: {
-        textAlign: 'center'
+        textAlign: 'center',
+        position: 'relative'
+    },
+    vsico: {
+      position: 'absolute',
+      width: '15%',
+      top: '54%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      zIndex: 1
+    },
+    border: {
+      border: '3px solid #242484',
+      width: '100%',
+      borderRadius: 30,
+      background: '#fff',
+      marginTop: '5%',
+    },
+    introVisual: {
+      border: '3px solid #242484',
+      width: '100%',
+      borderRadius: 30,
+      background: '#fff',
+      marginTop: '5%' //5
+    },
+    introImg: {
+      width: '100%',
+      margin: '10% 0 3% 0' //15
+    },
+    startBtn: {
+      width: '80%', 
+      margin: '5% auto', //5% 
+      display: 'inline-block'
     },
     questionH1: {
-        marginTop: 85,
+        marginTop: 85, //85
         marginBottom: 40,
-        padding: '0 24%'
+        padding: '0 14%'
     },
     answerItems: {
         width: '84%',
         margin: 'auto',
-        overflow: 'hidden',
-        marginBottom: 150,        
+        display: 'inline-block',
+        marginBottom: 50,
     },
     answerItemsLi: {
-        width: '50%',
-        float: 'left',
-        textAlign: 'center',
-        padding: '3%',
-        boxSizing: 'border-box',
-        cursor: 'pointer'
+      width: '100%',
+      float: 'left',
+      textAlign: 'center',
+      padding: '5% 0',
+      boxSizing: 'border-box',
+      cursor: 'pointer'
     },
     result: {
-        background: `url(${result_bg_ico}) 0 0 no-repeat`,
+        // background: `url(${result_bg_ico}) 0 0 no-repeat`,
         backgroundPositionY: '16%',
         backgroundSize: '100%'
     },
@@ -234,14 +425,25 @@ const styles: {[key in string]: CSSProperties}= {
     },
     resBtn: {
         width: '100%',
-        padding: '0 18%',
+        padding: '0 15%',
         marginTop: '5%'
     },
     resMain: {
         width: '100%',
         padding: '0 44.6%',
-        marginTop: '3%'
-    }
-  
+        marginTop: '4% auto 12% auto'
+    },
+    progressBar: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: '20px'
+    },
+    progressBarItem: {
+      width: '100%',
+      height: '10px',
+      margin: '0 5px',
+      borderRadius: '5px',
+    },
 };
 export default QuestionComponentWrapper;

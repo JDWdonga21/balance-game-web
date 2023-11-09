@@ -12,12 +12,13 @@ import Result7 from './ResScreens/Result7';
 import Result8 from './ResScreens/Result8';
 
 //이미지
-import result_bg_ico from '../assets/result_bg_ico.png'
 import bg_item from '../assets/bg_item.png'
 import pattern_bg from '../assets/pattern_bg.png'
 
 
 import { Typography } from '@mui/material';
+
+
 
 
 
@@ -186,7 +187,7 @@ const styles: {[key in string]: CSSProperties}= {
         boxSizing: 'border-box'
     },
     result: {
-        background: `url(${result_bg_ico}) 0 0 no-repeat`,
+        // background: `url(${result_bg_ico}) 0 0 no-repeat`,
         backgroundPositionY: '16%',
         backgroundSize: '100%'
     },
