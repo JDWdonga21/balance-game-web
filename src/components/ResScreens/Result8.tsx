@@ -12,9 +12,6 @@ import result_list_08_03 from '../../assets/result_list_08_03.png'
 import pic_txt from '../../assets/pic_txt.png'
 import btn_event from '../../assets/btn_event.png'
 import main_btn from '../../assets/main_btn.png'
-//import result_bg_ico from '../../assets/result_bg_ico.png'
-import bg_img from '../../assets/bg_img.png'
-import bg_item from '../../assets/bg_item.png'
 import pattern_bg from '../../assets/pattern_bg.png'
 
 class Result8 extends React.Component {
@@ -151,7 +148,6 @@ const styles: {[key in string]: CSSProperties}= {
       boxSizing: 'border-box'
     },
     result: {
-        // background: `url(${result_bg_ico}) 0 0 no-repeat`,
         backgroundPositionY: '16%',
         backgroundSize: '100%'
     },

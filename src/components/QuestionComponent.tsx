@@ -8,20 +8,13 @@ import keyword_title from '../assets/keyword_title.png'
 import pic_txt from '../assets/pic_txt.png'
 import btn_event from '../assets/btn_event.png'
 import main_btn from '../assets/main_btn.png'
-// import result_bg_ico from '../assets/result_bg_ico.png'
 import bg_img from '../assets/bg_img.png'
 import bg_item from '../assets/bg_item.png'
 import pattern_bg from '../assets/pattern_bg.png'
 import LinearProgress from '@mui/material/LinearProgress';
 
 import Stack from '@mui/material/Stack';
-//import { withStyles } from '@mui/styles';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+
 import question_title_01 from '../assets/question_title_01.png'
 import question_title_02 from '../assets/question_title_02.png'
 import question_title_03 from '../assets/question_title_03.png'
@@ -40,7 +33,6 @@ import answer_02_b_on from '../assets/answer_02_b_on.png';
 import answer_03_a_on from '../assets/answer_03_a_on.png';
 import answer_03_b_on from '../assets/answer_03_b_on.png';
 
-import or_img from '../assets/or_ico.png';
 import vs_icon from '../assets/vs_ico.png';
 
 const questions = [
@@ -142,7 +134,7 @@ class QuestionComponent extends Component<Props, State> {
     // Reset clickedButton after 1 second
     this.timeoutId = setTimeout(() => {
       this.handleAnswer2(answer);
-    }, 500);
+    }, 1500);
   }
   handleAnswer2 = (answer: string) => {
     this.setState((prevState: State) => ({
@@ -399,7 +391,6 @@ const styles: {[key in string]: CSSProperties}= {
       cursor: 'pointer'
     },
     result: {
-        // background: `url(${result_bg_ico}) 0 0 no-repeat`,
         backgroundPositionY: '16%',
         backgroundSize: '100%'
     },

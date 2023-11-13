@@ -152,7 +152,6 @@ const styles: {[key in string]: CSSProperties}= {
       boxSizing: 'border-box'
     },
     result: {
-        // background: `url(${result_bg_ico}) 0 0 no-repeat`,
         backgroundPositionY: '16%',
         backgroundSize: '100%'
     },

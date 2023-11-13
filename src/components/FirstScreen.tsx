@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { CSSProperties } from 'react';
 import header_title_test from '../assets/header_title_test.png';
-import bg_img from '../assets/bg_img.png'
-import bg_item from '../assets/bg_item.png'
 import pattern_bg from '../assets/pattern_bg.png'
 
 import index_img from '../assets/index_img.png'
