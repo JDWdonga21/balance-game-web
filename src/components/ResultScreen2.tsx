@@ -12,7 +12,6 @@ import Result7 from './ResScreens/Result7';
 import Result8 from './ResScreens/Result8';
 
 //이미지
-import bg_item from '../assets/bg_item.png'
 import pattern_bg from '../assets/pattern_bg.png'
 
 interface ResultScreenProps {
@@ -150,7 +149,6 @@ const styles: {[key in string]: CSSProperties}= {
         content: "''",
         display: 'block',
         position: 'absolute',
-        background: `url('${bg_item}') top center no-repeat`,
         backgroundSize: '100%',
         width: '100%',
         height: 120,
