@@ -3,13 +3,7 @@ import { MD5 } from 'crypto-js';
 import { useNavigate } from 'react-router-dom';
 import { CSSProperties } from 'react';
 import header_title_test from '../assets/header_title_test.png';
-import keyword_title from '../assets/keyword_title.png'
 
-import pic_txt from '../assets/pic_txt.png'
-import btn_event from '../assets/btn_event.png'
-import main_btn from '../assets/main_btn.png'
-import bg_img from '../assets/bg_img.png'
-import bg_item from '../assets/bg_item.png'
 import pattern_bg from '../assets/pattern_bg.png'
 import LinearProgress from '@mui/material/LinearProgress';
 
